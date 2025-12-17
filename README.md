@@ -52,7 +52,7 @@ Integrating this stylesheet is simple, wrap the content you want to simulate as 
 
 ```html
 <link
-  href="[https://github.com/StevenTaing/css-print-layout/blob/master/styles/print-layout.css](https://github.com/StevenTaing/css-print-layout/blob/main/styles/print-layout.css)"
+  href="https://github.com/StevenTaing/css-print-layout/blob/main/styles/print-layout.css"
   rel="stylesheet"
 />
 ```
