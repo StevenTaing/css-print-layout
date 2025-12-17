@@ -162,8 +162,8 @@ Use these utilities to remove or adjust styles specifically during printing
 
 ## 📸 Screenshots
 
-![screenshot1](https://github.com/StevenTaing/nuxt-ui-image-cropper/blob/master/images/screenshot-1.png)
-![screenshot2](https://github.com/StevenTaing/nuxt-ui-image-cropper/blob/master/images/screenshot-2.png)
+![screenshot1](https://github.com/StevenTaing/css-print-layout/blob/main/images/screenshot-1.png)
+![screenshot2](https://github.com/StevenTaing/css-print-layout/blob/main/images/screenshot-2.png)
 
 ---
 
