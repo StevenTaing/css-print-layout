@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Print Preview</title>
+    <link href="styles/print-layout.css" rel="stylesheet" />
+    <link href="styles/main.css" rel="stylesheet" />
+  </head>
+
+  <body>
+    <button
+      style="position: absolute; top: 5mm; right: 5mm; padding: 0.5rem"
+      class="print-none"
+      onclick="window.print()"
+    >
+      🖨️ Print Preview
+    </button>
+
+    <main class="A4 page-number-br">
+      <section class="page">
+        <div class="auto-flow">
+          <h1>Print Preview in A4 size.</h1>
+          <p>
+            This is a sample content area for the printed page. Including
+            watermark, header, footer and page numbers.
+          </p>
+        </div>
+      </section>
+
+      <section class="page"></section>
+    </main>
+  </body>
+</html>

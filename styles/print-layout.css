@@ -1,0 +1,225 @@
+:root {
+  --page-width: 210mm;
+  --page-height: 296mm;
+
+  --page-top-padding: 0;
+  --page-bottom-padding: 0;
+  --page-left-padding: 0;
+  --page-right-padding: 0;
+
+  --header-image: none;
+  --header-height: 0;
+  --footer-image: none;
+  --footer-height: 0;
+
+  --watermark-image: none;
+}
+
+body {
+  counter-reset: page;
+}
+
+/* Workspace wrapper */
+:is(.A4, .A5, .letter) {
+  background-color: #e0e0e0;
+  background-repeat: repeat;
+  width: 100%;
+  min-height: 100%;
+  display: grid;
+  justify-items: center;
+  padding: 5mm 0;
+  gap: 5mm;
+}
+
+/* Page container */
+:is(.A4, .A5, .letter) .page {
+  position: relative;
+  background-color: #ffffff;
+  background-image: var(--watermark-image);
+  box-shadow: 0 0.5mm 2mm rgba(0, 0, 0, 0.3);
+  overflow: hidden;
+  counter-increment: page;
+
+  width: var(--page-width);
+  height: var(--page-height);
+
+  padding-top: var(--page-top-padding);
+  padding-bottom: var(--page-bottom-padding);
+  padding-left: var(--page-left-padding);
+  padding-right: var(--page-right-padding);
+}
+
+/* Content above header image */
+:is(.A4, .A5, .letter) .page > * {
+  position: relative;
+  z-index: 1;
+}
+
+/* Header image */
+:is(.A4, .A5, .letter) .page::before {
+  content: "";
+  position: absolute;
+  width: calc(
+    var(--page-width) - var(--page-left-padding) - var(--page-right-padding)
+  );
+  top: calc(var(--page-top-padding) - var(--header-height));
+  left: var(--page-left-padding);
+  right: var(--page-right-padding);
+  height: var(--header-height);
+  font-size: 10pt;
+  color: #000000;
+
+  background-image: var(--header-image);
+  background-repeat: no-repeat;
+  background-position: left top;
+  background-size: contain;
+
+  z-index: 0;
+}
+
+/* Footer image */
+:is(.A4, .A5, .letter) .page::after {
+  content: "";
+  position: absolute;
+  width: calc(
+    var(--page-width) - var(--page-left-padding) - var(--page-right-padding)
+  );
+  bottom: calc(var(--page-bottom-padding) - var(--footer-height));
+  left: var(--page-left-padding);
+  right: var(--page-right-padding);
+  height: var(--footer-height);
+  font-size: 10pt;
+  color: #000000;
+
+  background-image: var(--footer-image);
+  background-repeat: no-repeat;
+  background-position: left top;
+  background-size: contain;
+
+  z-index: 0;
+}
+
+:is(.A4, .A5, .letter).page-number-tl .page::before {
+  content: "Page " counter(page);
+  text-align: left;
+}
+
+:is(.A4, .A5, .letter).page-number-tr .page::before {
+  content: "Page " counter(page);
+  text-align: right;
+}
+
+:is(.A4, .A5, .letter).page-number-bl .page::after {
+  content: "Page " counter(page);
+  text-align: left;
+}
+
+:is(.A4, .A5, .letter).page-number-br .page::after {
+  content: "Page " counter(page);
+  text-align: right;
+}
+
+/* Paper sizes */
+.A4 .page {
+  --page-width: 210mm;
+  --page-height: 296mm;
+}
+
+.A4.landscape .page {
+  --page-width: 297mm;
+  --page-height: 209mm;
+}
+
+.A5 .page {
+  --page-width: 148mm;
+  --page-height: 209mm;
+}
+
+.A5.landscape .page {
+  --page-width: 210mm;
+  --page-height: 147mm;
+}
+
+.letter .page {
+  --page-width: 216mm;
+  --page-height: 279mm;
+}
+
+.letter.landscape .page {
+  --page-width: 280mm;
+  --page-height: 215mm;
+}
+
+/* PRINT MODE */
+@media print {
+  @page {
+    margin: 0;
+    size: var(--page-width) var(--page-height);
+  }
+
+  :is(.A4, .A5, .letter) {
+    margin: 0;
+    padding: 0;
+    background-color: transparent;
+    gap: 0;
+  }
+
+  :is(.A4, .A5, .letter) .page {
+    box-shadow: none;
+    width: var(--page-width);
+    height: calc(var(--page-height) - var(--page-top-padding));
+  }
+
+  /* Print Specific Utilities */
+  .print-none {
+    display: none !important;
+  }
+
+  .m-print-none {
+    margin: 0 !important;
+  }
+
+  .ml-print-none {
+    margin-left: 0 !important;
+  }
+
+  .mr-print-none {
+    margin-right: 0 !important;
+  }
+
+  .mt-print-none {
+    margin-top: 0 !important;
+  }
+
+  .mb-print-none {
+    margin-bottom: 0 !important;
+  }
+
+  .p-print-none {
+    padding: 0 !important;
+  }
+
+  .pl-print-none {
+    padding-left: 0 !important;
+  }
+
+  .pr-print-none {
+    padding-right: 0 !important;
+  }
+
+  .pt-print-none {
+    padding-top: 0 !important;
+  }
+
+  .pb-print-none {
+    padding-bottom: 0 !important;
+  }
+
+  .b-print-none {
+    border: none !important;
+  }
+
+  .bg-print-none {
+    background: none !important;
+  }
+}

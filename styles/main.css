@@ -1,0 +1,21 @@
+@import url("https://fonts.googleapis.com/css2?family=Nokora:wght@100..900&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Angkor&display=swap");
+
+* {
+  margin: 0;
+  padding: 0;
+}
+
+:root {
+  --header-image: url(../images/logo-long.png);
+  --header-height: 20mm;
+  --footer-image: url(../images/footer.png);
+  --footer-height: 10mm;
+
+  --page-top-padding: 30mm; /*Should be equal or larger than header height*/
+  --page-bottom-padding: 15mm; /*Should be equal or larger than footer height*/
+  --page-left-padding: 5mm;
+  --page-right-padding: 5mm;
+
+  --watermark-image: url(../images/watermarks.png);
+}
