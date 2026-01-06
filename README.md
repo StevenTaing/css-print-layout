@@ -40,7 +40,7 @@ Integrating this stylesheet is simple, wrap the content you want to simulate as 
 
 ### 1. Getting started
 
-- Download `print-layout.css` file from GitHub or oad it directly.
+- Download `print-layout.css` file from GitHub or load it directly.
 
 - Copy downloaded stylesheet to your project and load it into `<head>`
 
